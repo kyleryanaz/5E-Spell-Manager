@@ -3,8 +3,21 @@ const router = express.Router();
 
 const Spell = require("../models/Spell");
 const Material = require("../models/Material");
+const Class = require("../models/Class");
 
 // READ
+router.get("/classes", (req, res, next) => {
+  Class.find(function(err, classes) {
+    res.json(classes);
+  });
+});
+
+router.get("/class/:id", (req, res, next) => {
+  Class.find({ _id: req.params.id }, function(err, returnedClass) {
+    res.json(returnedClass[0]);
+  });
+});
+
 router.get("/spells", (req, res, next) => {
   Spell.find(function(err, spells) {
     res.json(spells);
@@ -17,16 +30,33 @@ router.get("/spell/:id", (req, res, next) => {
   });
 });
 
+router.get("/materials", (req, res, next) => {
+  Material.find(function(err, materials) {
+    res.json(materials);
+  });
+});
+
+router.get("/material/:id", (req, res, next) => {
+  Material.find({ _id: req.params.id }, function(err, material) {
+    res.json(material[0]);
+  });
+});
+
 // CREATE
 router.post("/spell", (req, res, next) => {
   let newSpell = new Spell({
     name: req.body.name,
-    school: req.body.school,
     level: req.body.level,
-    classes: req.body.classes,
+    school: req.body.school,
+    castingTime: req.body.castingTime,
+    range: req.body.range,
     components: req.body.components,
+    duration: req.body.duration,
+    effect: req.body.effect,
+    classes: req.body.classes,
     materials: req.body.materials,
-    consumes: req.body.consumes
+    consumes: req.body.consumes,
+    concentration: req.body.concentration
   });
 
   newSpell.save((err, spell) => {
@@ -54,6 +84,20 @@ router.post("/material", (req, res, next) => {
     }
   });
 });
+
+// router.post("/class", (req, res, next) => {
+//   let newClass = new Class({
+//     name: req.body.name
+//   });
+//   newClass.save((err, returnedClass) => {
+//     if (err) {
+//       console.log(err);
+//       res.json({ msg: "Failed to add class" });
+//     } else {
+//       res.json({ msg: "Class added successfully" });
+//     }
+//   });
+// });
 
 // DELETE
 router.delete("/spell/:id", (req, res, next) => {

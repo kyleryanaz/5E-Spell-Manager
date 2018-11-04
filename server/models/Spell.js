@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const SpellSchema = new Schema({
+
   name: {
     type: String,
     required: true
@@ -12,6 +13,22 @@ const SpellSchema = new Schema({
     required: true
   },
   school: {
+    type: String,
+    required: true
+  },
+  castingTime: {
+    type: String,
+    required: true
+  },
+  effect: {
+    type: String,
+    required: true
+  },
+  duration: {
+    type: String,
+    required: true
+  },
+  range: {
     type: String,
     required: true
   },
@@ -30,6 +47,10 @@ const SpellSchema = new Schema({
   consumes: {
     type: Boolean,
     required: false
+  },
+  concentration: {
+    type: Boolean,
+    required: true
   }
 });
 
