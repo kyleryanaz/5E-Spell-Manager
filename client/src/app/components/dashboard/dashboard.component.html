@@ -1,0 +1,4 @@
+<h2>Spells</h2>
+<div class="listedSpell" *ngFor="let spell of spells" [routerLink]="['/spell', spell._id]">
+  {{spell.name}}
+</div>

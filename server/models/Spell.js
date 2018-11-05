@@ -33,7 +33,7 @@ const SpellSchema = new Schema({
     required: true
   },
   classes: [{
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true
   }],
   components: [{
