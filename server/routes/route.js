@@ -24,11 +24,31 @@ router.get("/spells", (req, res, next) => {
   });
 });
 
+// router.get("/spell/:id", (req, res, next) => {
+//   Spell.find({ _id: req.params.id }, function(err, spell) {
+//     res.json(spell[0]);
+//   });
+// });
+
 router.get("/spell/:id", (req, res, next) => {
-  Spell.find({ _id: req.params.id }, function(err, spell) {
-    res.json(spell[0]);
-  });
-});
+  Spell.findOne({ _id: req.params.id })
+    .populate({
+      path: 'classes',
+      model: 'Class'
+  })
+    .populate({
+      path: 'materials',
+      model: 'Material'
+    }).exec(function (error, doc) {
+      if (doc) {
+        res.json(doc);
+      } else if (error) {
+        console.log(error);
+      } else {
+        console.log(null);
+      }
+    });
+})
 
 router.get("/materials", (req, res, next) => {
   Material.find(function(err, materials) {

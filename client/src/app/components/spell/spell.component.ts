@@ -11,9 +11,19 @@ export class SpellComponent implements OnInit {
 
   id: number;
   private sub: any;
-  public spellName: string;
-  public spellSchool: string;
-  public spellLevel: number;
+  private spellCastingTime: String;
+  // Todo: Class Interface
+  private spellClasses: Array<String> = [];
+  private spellConcentration: boolean;
+  private spellConsumes: boolean;
+  private spellDuration: string;
+  private spellEffect: string;
+  private spellLevel: number;
+  // Todo: Material Interface
+  private spellMaterials: Array<String> = [];
+  private spellName: string;
+  private spellRange: string;
+  private spellSchool: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -25,10 +35,23 @@ export class SpellComponent implements OnInit {
       this.id = params["id"].toString();
     });
     this.spellService.getSpellById(this.id).subscribe(spell => {
-      this.spellName = spell.name;
-      this.spellSchool = spell.school;
+      console.log(spell);
+      this.spellCastingTime = spell.castingTime;
+      this.spellClasses = spell.classes;
+      this.spellConcentration = spell.concentration;
+      this.spellConsumes = spell.consumes;
+      this.spellDuration = spell.duration;
+      this.spellEffect = spell.effect;
       this.spellLevel = spell.level;
+      this.spellMaterials = spell.materials;
+      this.spellName = spell.name;
+      this.spellRange = spell.range;
+      this.spellSchool = spell.school;
     });
+  }
+
+  test() {
+    console.log(this.spellMaterials);
   }
 
   // getSpellColor(color){
