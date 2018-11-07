@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const SpellSchema = new Schema({
 
+  shortId: {
+    type: String,
+    required: true
+  },
   name: {
     type: String,
     required: true

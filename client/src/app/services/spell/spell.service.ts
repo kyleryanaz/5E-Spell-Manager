@@ -10,7 +10,6 @@ export class SpellService {
 
   //Read
   getSpells() {
-    console.log('check');
     return this.http
       .get("http://localhost:3000/api/spells")
       .pipe(map(res => res.json()));

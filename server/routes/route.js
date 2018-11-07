@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const shortid = require('shortid');
 
 const Spell = require("../models/Spell");
 const Material = require("../models/Material");
@@ -31,6 +32,9 @@ router.get("/spells", (req, res, next) => {
 // });
 
 router.get("/spell/:id", (req, res, next) => {
+  for(var i = 0; i < 20; i++){
+    console.log(shortid.generate());
+  }
   Spell.findOne({ _id: req.params.id })
     .populate({
       path: 'classes',
@@ -65,6 +69,7 @@ router.get("/material/:id", (req, res, next) => {
 // CREATE
 router.post("/spell", (req, res, next) => {
   let newSpell = new Spell({
+    shortId: shortid.generate(),
     name: req.body.name,
     level: req.body.level,
     school: req.body.school,
@@ -91,6 +96,7 @@ router.post("/spell", (req, res, next) => {
 
 router.post("/material", (req, res, next) => {
   let newMaterial = new Material({
+    shortId: shortid.generate(),
     name: req.body.name,
     value: req.body.value
   });
@@ -107,6 +113,7 @@ router.post("/material", (req, res, next) => {
 
 // router.post("/class", (req, res, next) => {
 //   let newClass = new Class({
+//     shortId: shortid.generate(),
 //     name: req.body.name
 //   });
 //   newClass.save((err, returnedClass) => {

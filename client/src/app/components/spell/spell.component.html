@@ -6,7 +6,6 @@
       <p>School: {{spellSchool}}</p>
       <p>Casting Time: {{spellCastingTime}}</p>
       <p>Concentration: {{spellConcentration}}</p>
-      <p>Consumes: {{spellConsumes}}</p>
       <p>Duration: {{spellDuration}}</p>
       <p>Range: {{spellRange}}</p>
       <div *ngIf="spellMaterials[0].name !== 'None'">
@@ -14,6 +13,7 @@
         <ul>
           <li *ngFor="let material of spellMaterials">{{material.name}}</li>
         </ul>
+        <p>Consumes: {{spellConsumes}}</p>
       </div>
     </div>
     <div class="col-lg-6">
