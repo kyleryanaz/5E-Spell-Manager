@@ -9,7 +9,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class SpellComponent implements OnInit {
 
-  id: number;
+  private id: number;
+  private shortId: string;
   private sub: any;
   private spellCastingTime: String;
   // Todo: Class Interface
@@ -32,10 +33,9 @@ export class SpellComponent implements OnInit {
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
-      this.id = params["id"].toString();
+      this.shortId = params["id"].toString();
     });
-    this.spellService.getSpellById(this.id).subscribe(spell => {
-      console.log(spell);
+    this.spellService.getSpellById(this.shortId).subscribe(spell => {
       this.spellCastingTime = spell.castingTime;
       this.spellClasses = spell.classes;
       this.spellConcentration = spell.concentration;
@@ -50,9 +50,9 @@ export class SpellComponent implements OnInit {
     });
   }
 
-  test() {
-    console.log(this.spellMaterials);
-  }
+  // test() {
+  //   console.log(this.spellMaterials);
+  // }
 
   // getSpellColor(color){
   //   console.log(color);

@@ -25,6 +25,7 @@ router.get("/spells", (req, res, next) => {
   });
 });
 
+// Original spell by id route
 // router.get("/spell/:id", (req, res, next) => {
 //   Spell.find({ _id: req.params.id }, function(err, spell) {
 //     res.json(spell[0]);
@@ -32,10 +33,7 @@ router.get("/spells", (req, res, next) => {
 // });
 
 router.get("/spell/:id", (req, res, next) => {
-  for(var i = 0; i < 20; i++){
-    console.log(shortid.generate());
-  }
-  Spell.findOne({ _id: req.params.id })
+  Spell.findOne({ shortId: req.params.id })
     .populate({
       path: 'classes',
       model: 'Class'
