@@ -1,0 +1,13 @@
+.listedMaterial {
+  height: 5vh;
+  width: 30vw;
+  border: 1px solid black;
+  border-radius: 3px;
+  box-shadow: 2px 5px #888888a1;
+  margin: 2vh auto 2vh auto;
+}
+
+.listedMaterial:hover {
+  cursor: pointer;
+  box-shadow: 2px 5px #3d3d3da1;
+}

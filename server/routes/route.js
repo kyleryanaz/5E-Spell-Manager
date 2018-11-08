@@ -59,7 +59,7 @@ router.get("/materials", (req, res, next) => {
 });
 
 router.get("/material/:id", (req, res, next) => {
-  Material.find({ _id: req.params.id }, function(err, material) {
+  Material.find({ shortId: req.params.id }, function(err, material) {
     res.json(material[0]);
   });
 });

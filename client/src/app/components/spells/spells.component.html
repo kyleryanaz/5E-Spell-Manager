@@ -1,0 +1,7 @@
+<label>Filter Spells</label><br>
+<input type="text" [(ngModel)]="searchTerm">
+
+<h2>Spells</h2>
+<div class="listedSpell" *ngFor="let spell of spells | spellFilter:searchTerm" [routerLink]="['/spell', spell.shortId]">
+  {{spell.name}}
+</div>

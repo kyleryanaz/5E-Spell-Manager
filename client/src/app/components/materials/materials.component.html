@@ -1,0 +1,7 @@
+<label>Filter Materials</label><br>
+<input type="text" [(ngModel)]="searchTerm">
+
+<h2>Materials</h2>
+<div class="listedMaterial" *ngFor="let material of materials | materialFilter:searchTerm" [routerLink]="['/material', material.shortId]">
+  {{material.name}}
+</div>
