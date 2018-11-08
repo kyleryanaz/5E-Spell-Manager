@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from "@angular/http";
 import { RouterModule, Routes } from "@angular/router";
+import { FormsModule } from '@angular/forms';
 
 // Services
 
@@ -9,6 +10,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SpellComponent } from './components/spell/spell.component';
+import { SpellFilterPipe } from './pipes/spellFilter/spell-filter.pipe';
 
 const appRoutes: Routes = [
   {
@@ -27,11 +29,13 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    SpellComponent
+    SpellComponent,
+    SpellFilterPipe,
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],
