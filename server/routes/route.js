@@ -20,9 +20,23 @@ router.get("/class/:id", (req, res, next) => {
 });
 
 router.get("/spells", (req, res, next) => {
-  Spell.find(function(err, spells) {
-    res.json(spells);
-  });
+  Spell.find({})
+    .populate({
+      path: 'classes',
+      model: 'Class'
+  })
+    .populate({
+      path: 'materials',
+      model: 'Material'
+    }).exec(function (error, doc) {
+      if (doc) {
+        res.json(doc);
+      } else if (error) {
+        console.log(error);
+      } else {
+        console.log(null);
+      }
+    });
 });
 
 // Original spell by id route

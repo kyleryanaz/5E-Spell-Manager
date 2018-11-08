@@ -21,6 +21,7 @@ export class SpellsComponent implements OnInit {
 
   getSpells = () => {
     this.spellService.getSpells().subscribe(spells => {
+      console.log(spells);
       this.spells = spells;
     });
   };

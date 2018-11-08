@@ -1,4 +1,11 @@
 body {
+  background-color: #848FA5;
   font-family: "Courier New";
   text-align: center;
+}
+
+#staticNav {
+  background-color: #2D2D2A;
+  /* #40434E */
+  color: white;
 }

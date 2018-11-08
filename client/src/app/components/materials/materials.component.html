@@ -1,7 +1,22 @@
-<label>Filter Materials</label><br>
-<input type="text" [(ngModel)]="searchTerm">
-
-<h2>Materials</h2>
-<div class="listedMaterial" *ngFor="let material of materials | materialFilter:searchTerm" [routerLink]="['/material', material.shortId]">
-  {{material.name}}
+<div class="container">
+  <h2 class="my-3">Materials</h2>
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search Materials">
+    </div>
+    <div class="col-lg-8">
+      Filters will go here
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="listedMaterial" *ngFor="let material of materials | materialFilter:searchTerm" [routerLink]="['/material', material.shortId]">
+            {{material.name}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

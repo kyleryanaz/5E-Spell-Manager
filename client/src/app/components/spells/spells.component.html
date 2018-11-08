@@ -1,7 +1,27 @@
-<label>Filter Spells</label><br>
-<input type="text" [(ngModel)]="searchTerm">
-
-<h2>Spells</h2>
-<div class="listedSpell" *ngFor="let spell of spells | spellFilter:searchTerm" [routerLink]="['/spell', spell.shortId]">
-  {{spell.name}}
+<div class="container">
+  <h2 class="my-3">Spells</h2>
+  <div class="row">
+    <div class="col-lg-4">
+      <input type="text" [(ngModel)]="searchTerm" placeholder="Search Spells">
+    </div>
+    <div class="col-lg-8">
+      <button type="button" class="btn mx-1">Class</button>
+      <button type="button" class="btn mx-1">Lvl</button>
+      <button type="button" class="btn mx-1">Primary</button>
+      <button type="button" class="btn mx-1">Primary</button>
+      <button type="button" class="btn mx-1">Primary</button>
+    </div>
+  </div>
+  <div class="row my-3">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <div class="listedSpell" *ngFor="let spell of spells | spellFilter:searchTerm" [routerLink]="['/spell', spell.shortId]">
+            <h4>{{spell.name}}</h4>
+            <p *ngFor="let class of spell.classes" class="my-1">{{class.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
