@@ -13,8 +13,14 @@ router.get("/classes", (req, res, next) => {
   });
 });
 
+router.get("/material/:id", (req, res, next) => {
+  Material.find({ shortId: req.params.id }, function(err, material) {
+    res.json(material[0]);
+  });
+});
+
 router.get("/class/:id", (req, res, next) => {
-  Class.find({ _id: req.params.id }, function(err, returnedClass) {
+  Class.find({ shortId: req.params.id }, function(err, returnedClass) {
     res.json(returnedClass[0]);
   });
 });
@@ -39,13 +45,14 @@ router.get("/spells", (req, res, next) => {
     });
 });
 
-// Original spell by id route
+// SPELL BY ID (01)
 // router.get("/spell/:id", (req, res, next) => {
 //   Spell.find({ _id: req.params.id }, function(err, spell) {
 //     res.json(spell[0]);
 //   });
 // });
 
+// SPELL BY ID (02)
 router.get("/spell/:id", (req, res, next) => {
   Spell.findOne({ shortId: req.params.id })
     .populate({

@@ -1,0 +1,20 @@
+.listedClass {
+    /* height: 5vh; */
+    width: 40vw;
+    border: 1px solid black;
+    border-radius: 3px;
+    box-shadow: 2px 5px #888888a1;
+    margin: 2vh auto 2vh auto;
+  }
+  
+  .listedClass:hover {
+    cursor: pointer;
+    box-shadow: 2px 5px #3d3d3da1;
+  }
+  
+  .card {
+    height: 40vw;
+    max-height: 40vw;
+    overflow-y: scroll;
+  }
+  

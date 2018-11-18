@@ -15,12 +15,25 @@ import { SpellsComponent } from './components/spells/spells.component';
 import { MaterialsComponent } from './components/materials/materials.component';
 import { MaterialComponent } from './components/material/material.component';
 import { MaterialFilterPipe } from './pipes/materialFilter/material-filter.pipe';
+import { ClassesComponent } from './components/classes/classes.component';
+import { ClassComponent } from './components/class/class.component';
+import { ClassFilterPipe } from './pipes/classFilter/class-filter.pipe';
 
 const appRoutes: Routes = [
   {
     path: "",
     component: DashboardComponent,
     data: { title: "Dashboard | Spell Manager" }
+  },
+  {
+    path: "classes",
+    component: ClassesComponent,
+    data: { title: "Classes | Spell Manager" }
+  },
+  {
+    path: "class/:id",
+    component: ClassComponent,
+    data: { title: "Class | Spell Manager" }
   },
   {
     path: "materials",
@@ -42,19 +55,21 @@ const appRoutes: Routes = [
     component: SpellComponent,
     data: { title: "Spell | Spell Manager" }
   }
-
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    ClassesComponent,
+    ClassComponent,
     SpellComponent,
     SpellFilterPipe,
     SpellsComponent,
     MaterialsComponent,
     MaterialComponent,
     MaterialFilterPipe,
+    ClassFilterPipe,
   ],
   imports: [
     BrowserModule,

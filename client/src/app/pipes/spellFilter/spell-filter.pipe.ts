@@ -10,7 +10,7 @@ export class SpellFilterPipe implements PipeTransform {
     if (searchTerm === undefined) return spells;
     // return updated spells array
     return spells.filter(function (spell) {
-      return spell.name.toLowerCase().includes(searchTerm.toLowerCase())
+      return spell.name.toLowerCase().includes(searchTerm.toLowerCase());
     })
   }
 
