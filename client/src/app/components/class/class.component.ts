@@ -12,7 +12,8 @@ export class ClassComponent implements OnInit {
   private sub: any;
   private shortId: string;
   private className: string;
-
+  private hitDie: string;
+  private description: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,8 @@ export class ClassComponent implements OnInit {
     this.classService.getClassById(this.shortId).subscribe(gameClass => {
       this.className = gameClass.name;
       this.shortId = gameClass.shortId;
+      this.hitDie = gameClass.hitDie;
+      this.description = gameClass.description;
     });
   }
 
