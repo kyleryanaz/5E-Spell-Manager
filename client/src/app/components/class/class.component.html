@@ -1,12 +1,18 @@
 <h1>{{className}}</h1>
+<p style="margin:auto">{{description}}</p><br><br>
 <div class="row">
-  <p style="margin:auto">{{description}}</p><br><br>
   <div class="col-lg-6">
+    <p>Primary Ability: {{primaryAbility}}</p>
+    <p>Saving Throw Proficiencies:</p>
+    <ul>
+      <li *ngFor="let sProf of saveProfs">{{sProf}}</li>
+    </ul>
     <p>Hit Die: {{hitDie}}</p>
   </div>
   <div class="col-lg-6">
-
+    <p>Equipment Proficiencies:</p>
+    <ul>
+      <li *ngFor="let eProf of equipmentProfs">{{eProf}}</li>
+    </ul>
   </div>
 </div>
-
-<!-- <p>Test</p> -->

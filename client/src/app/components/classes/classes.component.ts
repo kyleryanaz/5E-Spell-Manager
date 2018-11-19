@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClassService } from "../../services/class.service";
+import { ClassService } from "../../services/class/class.service";
 import { ClassFilterPipe } from './../../pipes/classFilter/class-filter.pipe';
 
 @Component({

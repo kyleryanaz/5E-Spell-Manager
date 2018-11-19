@@ -130,20 +130,20 @@ router.post("/material", (req, res, next) => {
   });
 });
 
-// router.post("/class", (req, res, next) => {
-//   let newClass = new Class({
-//     shortId: shortid.generate(),
-//     name: req.body.name
-//   });
-//   newClass.save((err, returnedClass) => {
-//     if (err) {
-//       console.log(err);
-//       res.json({ msg: "Failed to add class" });
-//     } else {
-//       res.json({ msg: "Class added successfully" });
-//     }
-//   });
-// });
+router.post("/class", (req, res, next) => {
+  let newClass = new Class({
+    shortId: shortid.generate(),
+    name: req.body.name
+  });
+  newClass.save((err, returnedClass) => {
+    if (err) {
+      console.log(err);
+      res.json({ msg: "Failed to add class" });
+    } else {
+      res.json({ msg: "Class added successfully" });
+    }
+  });
+});
 
 // DELETE
 router.delete("/spell/:id", (req, res, next) => {
